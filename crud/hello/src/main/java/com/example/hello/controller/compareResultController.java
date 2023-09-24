@@ -12,7 +12,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-// reference: https://www.bezkoder.com/spring-boot-jpa-crud-rest-api/
+// reference_backend: https://www.bezkoder.com/spring-boot-jpa-crud-rest-api/
+// reference_frontend: https://ithelp.ithome.com.tw/articles/10312869
+
 @CrossOrigin(origins = "http://localhost:8000")
 @RestController
 @RequestMapping("/api")

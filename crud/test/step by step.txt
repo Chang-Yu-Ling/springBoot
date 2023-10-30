@@ -1,0 +1,87 @@
+ref:https://github.com/basarat/cypress-cra/tree/master
+
+1.
+npx create-react-app cypress-cra --template typescript
+
+2.
+cd cypress-cra\
+
+3.
+npm i cypress @cypress/instrument-cra @cypress/code-coverage start-server-and-test
+
+4.
+code .
+
+5.
+cypress-cra/cypress.json
+{
+  "baseUrl": "http://localhost:3000",
+  "integrationFolder": "src/cypress/integration",
+  "fixturesFolder": "src/cypress/fixtures",
+  "supportFile": "src/cypress/support/index.js",
+  "pluginsFile": "src/cypress/plugins/index.js"
+}
+
+6.
+cypress-cra/src/cypress/support/index.js
+import '@cypress/code-coverage/support';
+
+7.
+cypress-cra/src/cypress/plugins/index.js
+module.exports = (on, config) => {
+  require('@cypress/code-coverage/task')(on, config);
+  return config;
+};
+
+8.
+cypress-cra/tsconfig.json
+"compilerOptions": {
+    ......  ,
+    "jsx": "react",
+    "types": [
+      "cypress"
+    ]
+},
+
+9.
+cypress-cra/.gitignore
+# cypress 
+cypress/videos
+cypress/screenshots
+.nyc_output
+
+10.
+cypress-cra/src/cypress/integration/app.spec.tsx
+export { };
+it('should work', () => {
+  cy.visit('http://localhost:3000');
+  cy.get('a').should('have.text', 'Learn React');
+});
+
+11.
+cypress-cra/package.json
+      "dependencies": {
+        "@cypress/code-coverage": "^3.12.6",
+        "@cypress/instrument-cra": "^1.4.0",
+        "@testing-library/jest-dom": "^5.17.0",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "@types/jest": "^27.5.2",
+}
+,
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "cypress:start:app": "BROWSER=none react-scripts -r @cypress/instrument-cra start",
+    "cypress:start:wait": "start-server-and-test cypress:start:app http://localhost:3000",
+    "cypress:open": "npm run cypress:start:wait -- \"cypress open\"",
+    "cypress:run": "npm run cypress:start:wait -- \"cypress run\"",
+    "eject": "react-scripts eject"
+  },
+
+12.
+npm run cypress:open
+npm run cypress:run
+
+13.
+open converage/lcov-report/index.html

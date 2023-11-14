@@ -1,0 +1,5 @@
+23:24:28.327 default [main] WARN  o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+23:24:48.798 default [http-nio-9000-exec-1] WARN  c.e.h.c.compareResultController - warn
+23:24:48.798 default [http-nio-9000-exec-1] ERROR c.e.h.c.compareResultController - error
+23:24:56.998 default [http-nio-9000-exec-2] WARN  c.e.h.c.compareResultController - warn
+23:24:56.998 default [http-nio-9000-exec-2] ERROR c.e.h.c.compareResultController - error

@@ -30,11 +30,11 @@ public class testGlobal {
     @GetMapping("/v1/compare2")
     public ResponseEntity<Dictionary<String, String>> findByProdID2(@RequestParam(required = false) String prodId, HttpServletRequest request) {
         try {
-            System.out.println(request.getSession().getAttribute("UserName"));
+            // System.out.println(request.getSession().getAttribute("UserName"));
             // System.out.println(request.getAttribute("UserName")); // null
 
-            // String name=user.getUserName();
-            // System.out.println(name);
+            String name=user.getUserName();
+            System.out.println(name);
             Dictionary<String, String> wDictionary = new Hashtable<String, String>();
             wDictionary.put("CompareResult",prodId);
             return new ResponseEntity<>(wDictionary, HttpStatus.OK);

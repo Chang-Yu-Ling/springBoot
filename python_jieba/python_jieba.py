@@ -30,3 +30,11 @@ words_list = []
 for word in words:
     words_list.append(word)
 print(f'output:{words_list}')
+
+##==================
+## read: https://shengyu7697.github.io/python-read-text-file/
+## encode: https://stackoverflow.com/questions/49021589/how-do-i-fix-this-cp950-illegal-multibyte-sequence-unicodedecodeerror-when-rea
+path = 'dict_define.txt'
+f = open(path, 'r', encoding="utf-8")
+print(f.read())
+f.close()

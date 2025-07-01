@@ -1,0 +1,47 @@
+:root {
+    --background-light: #ffffff;
+    --background-dark: #1a1a1a;
+    --text-light: #000000;
+    --text-dark: #ffffff;
+    --border-light: #cccccc;
+    --border-dark: #444444;
+}
+
+body {
+    background-color: var(--background-light);
+    color: var(--text-light);
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark-mode {
+    background-color: var(--background-dark);
+    color: var(--text-dark);
+}
+
+header, footer {
+    border-bottom: 1px solid var(--border-light);
+}
+
+body.dark-mode header, body.dark-mode footer {
+    border-color: var(--border-dark);
+}
+
+.sidebar {
+    background-color: var(--background-light);
+    transition: background-color 0.3s;
+}
+
+body.dark-mode .sidebar {
+    background-color: var(--background-dark);
+}
+
+.icon-set {
+    display: flex;
+    justify-content: space-around;
+    margin: 20px 0;
+}
+
+.icon {
+    width: 50px;
+    height: 50px;
+}

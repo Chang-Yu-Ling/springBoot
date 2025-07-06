@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
-import React, { isValidElement } from "react";
+import React, { isValidElement, useEffect } from "react";
 import { InputText } from "primereact/inputtext";
 import { Dropdown } from "primereact/dropdown";
 import { Button } from "primereact/button";
@@ -10,13 +10,14 @@ import { Menu } from "primereact/menu";
 import { OverlayPanel } from "primereact/overlaypanel";
 import { InputSwitch } from "primereact/inputswitch";
 
-const dropdownItems = [
-  { label: "Option 1", value: "1" },
-  { label: "Option 2", value: "2" },
-  { label: "Option 3", value: "3" },
-];
+// const dropdownItems = [
+//   { label: "Option 1", value: "1" },
+//   { label: "Option 2", value: "2" },
+//   { label: "Option 3", value: "3" },
+// ];
 // Define the icon data as a JSON array
-const iconData = [
+const iconDataSet = {
+  "changyly_1":[
   {
     logo: "pi pi-github",
     description: "GitHub",
@@ -35,12 +36,254 @@ const iconData = [
     href: "https://primereact.org",
     isValid:true,
   },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_1",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_1",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_1",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_2",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_2",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_2",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_3",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_3",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_3",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_4",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_4",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_4",
+    href: "https://primereact.org",
+    isValid:true,
+  },
   // Add more items as needed
-];
+],"changyly_2":[  
+  {
+    logo: "pi pi-github",
+    description: "GitHub_1",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_1",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_1",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_2",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_2",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_2",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_3",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_3",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_3",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_4",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_4",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_4",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  // Add more items as needed
+],"changyly_3":[
+  {
+    logo: "pi pi-github",
+    description: "GitHub_2",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_2",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_2",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_3",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_3",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_3",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_4",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_4",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_4",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  // Add more items as needed
+],"changyly_4":[
+  {
+    logo: "pi pi-github",
+    description: "GitHub_3",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_3",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_3",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-github",
+    description: "GitHub_4",
+    href: "https://github.com",
+    isValid:true,
+  },
+  {
+    logo: "pi pi-twitter",
+    description: "Twitter_4",
+    href: "https://twitter.com",
+    isValid:false,
+  },
+  {
+    logo: "pi pi-globe",
+    description: "Website_4",
+    href: "https://primereact.org",
+    isValid:true,
+  },
+  // Add more items as needed
+],
+
+};
 
 
   // Example user data
-  const userName = "John Doe";
+  // const userName = "John Doe";
   const logoutUrl = "https://your-logout-url.com";
 
   const menuItems = [
@@ -54,10 +297,54 @@ const iconData = [
   ];
 
 export const WebGui: React.FC = () => {
-  const [selectedOption, setSelectedOption] = React.useState<string | null>(null);
-  const [search, setSearch] = React.useState<string>(""); // Add search state
+  const [search, setSearch] = React.useState<string>("");
   const [darkMode, setDarkMode] = React.useState<boolean>(false);
-  const op = React.useRef<OverlayPanel>(null);  
+  const op = React.useRef<OverlayPanel>(null);
+  const [showLeftBar, setShowLeftBar] = React.useState<boolean>(true);
+  const [userName, setUserName] = React.useState<string | null>(null);
+  type DropdownItem = { label: string; value: string };
+  const [dropdownItems, setDropdownItems] = React.useState<DropdownItem[] | null>([]);
+  type IconItem = { logo: string; description: string; href: string; isValid: boolean };
+  const [iconData, setIconData] = React.useState<IconItem[]>([]);
+  const [selectedOption, setSelectedOption] = React.useState<string| null>(dropdownItems!=null?"1":null);
+  const [loading, setLoading] = React.useState<string>("block");
+  // const [selectedOption, setSelectedOption] = React.useState<string | null>(null);
+  const handleSetUserName = () => {    
+    setTimeout(() => {
+    setUserName('changyly')
+    }, 3000);
+  }
+  const handleSetDropdownItems = () => {
+    setTimeout(() => {
+        setDropdownItems( [
+      { label: "300mm", value: "1" },
+      { label: "EBO"  , value: "2" },
+      { label: "APOD" , value: "3" },
+      { label: "3DIC" , value: "4" },
+    ])
+    }, 3000);
+  }
+  type IconDataSetKey = keyof typeof iconDataSet;
+  const handleSetIconData = (userName: string, fab: string) => {
+    console.log("handleSetIconData", userName, fab);
+    setIconData([]);
+    setLoading("block");
+    setTimeout(() => {
+    setLoading("none");
+      const list = iconDataSet[userName+'_'+fab as IconDataSetKey];
+      setIconData(list || []);
+    }, 10000);
+  }
+  useEffect(() => {
+      handleSetUserName()
+      handleSetDropdownItems()
+  })
+  useEffect(() => {
+    if (userName && selectedOption) {
+      handleSetIconData(userName, selectedOption);
+    }
+    // Simulate fetching user data
+  }, [userName, selectedOption]);
   // Color palettes for light and dark mode
   const colors = darkMode
     ? {
@@ -78,6 +365,8 @@ export const WebGui: React.FC = () => {
         dropdownText: "#fff",
         userPanelBg: "#263238",
         userPanelText: "#90caf9",
+        searchBoxBg: "#23272f",
+        searchBoxText: "#fff",
       }
     : {
         headerBg: "#81C0C0",        // Deep indigo for header
@@ -97,6 +386,8 @@ export const WebGui: React.FC = () => {
         dropdownText: "#222",
         userPanelBg: "#fff",
         userPanelText: "#1976d2",
+        searchBoxBg: "#e3f2fd",
+        searchBoxText: "#222",
       };
 
   // Filter icons by search (case-insensitive, match in description)
@@ -129,15 +420,35 @@ export const WebGui: React.FC = () => {
           transition: "background 0.3s, color 0.3s",
         }}
       >
-        {/* Web Logo and Name Panel at 2% from left */}
+        {/* Hamburger at 2% width */}
+        <Button
+          icon="pi pi-bars"
+          className="p-button-rounded p-button-text"
+          style={{
+            position: "absolute",
+            left: "1%",
+            top: "50%",
+            transform: "translateY(-50%)",
+            color: colors.headerText,
+            fontSize: "1.0rem",
+            zIndex: 3,
+            background: "transparent",
+            border: "none",
+          }}
+          aria-label="Toggle Left Bar"
+          onClick={() => setShowLeftBar((prev) => !prev)}
+        />
+
+        {/* Web Logo and Name Panel at 5.5% from left (move right to avoid hamburger) */}
         <div
           style={{
             position: "absolute",
-            left: "2%",
+            left: "5.5%",
             display: "flex",
             alignItems: "center",
             gap: "12px",
             userSelect: "none",
+            marginLeft: "20px",
           }}
         >
           {/* Square Logo */}
@@ -183,27 +494,23 @@ export const WebGui: React.FC = () => {
               borderRadius: "20px",
               border: "none",
               padding: "8px 16px",
-              background: darkMode ? "#23272f" : "#e3f2fd",
-              color: darkMode ? "#fff" : "#222",
+              background: colors.searchBoxBg,
+              color: colors.searchBoxText,
               transition: "background 0.3s, color 0.3s",
             }}
           />
         </div>
-        {/* Dropdown at 65% from left */}
+        {/* Dropdown at 70% from left */}
         <div
           style={{
             position: "absolute",
-            left: "65%",
+            left: "70%",
             width: "15%",
           }}
         >
           <Dropdown
             value={selectedOption}
-            options={[
-              { label: "Option 1", value: "1" },
-              { label: "Option 2", value: "2" },
-              { label: "Option 3", value: "3" },
-            ]}
+            options={dropdownItems || []}
             onChange={(e) => setSelectedOption(e.value)}
             placeholder="Select"
             style={{
@@ -264,41 +571,49 @@ export const WebGui: React.FC = () => {
       </div>
 
       {/* Body */}
-      <div style={{ height: "80%", display: "flex", flex: 1 }}>
+      <div style={{
+          height: "80%",
+          display: "flex",
+          flex: 1,
+          minHeight: 0, // For flexbox scroll
+          position: "relative",
+        }}>        
         {/* Left Bar */}
-        <div
-          style={{
-            width: "10%",
-            minWidth: "60px",
-            background: colors.leftBarBg,
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            justifyContent: "center",
-            gap: "24px",
-            boxShadow: "2px 0 8px rgba(0, 131, 143, 0.08)",
-            transition: "background 0.3s",
-          }}
-        >
-          <Button
-            icon="pi pi-home"
-            className="p-button-rounded p-button-text"
-            aria-label="Home"
+        {showLeftBar && (
+          <div
+            style={{
+              width: "10%",
+              minWidth: "60px",
+              background: colors.leftBarBg,
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              justifyContent: "center",
+              gap: "24px",
+              boxShadow: "2px 0 8px rgba(0, 131, 143, 0.08)",
+              transition: "background 0.3s",
+            }}
+          >
+            <Button
+              icon="pi pi-home"
+              className="p-button-rounded p-button-text"
+              aria-label="Home"
             style={{ color: colors.leftBarIcon, fontSize: "1.5rem", background: colors.leftBarIconBg }}
-          />
-          <Button
-            icon="pi pi-user"
-            className="p-button-rounded p-button-text"
-            aria-label="User"
+            />
+            <Button
+              icon="pi pi-user"
+              className="p-button-rounded p-button-text"
+              aria-label="User"
             style={{ color: colors.leftBarIcon, fontSize: "1.5rem", background: colors.leftBarIconBg  }}
-          />
-          <Button
-            icon="pi pi-cog"
-            className="p-button-rounded p-button-text"
-            aria-label="Settings"
+            />
+            <Button
+              icon="pi pi-cog"
+              className="p-button-rounded p-button-text"
+              aria-label="Settings"
             style={{ color: colors.leftBarIcon, fontSize: "1.5rem", background: colors.leftBarIconBg  }}
-          />
-        </div>
+            />
+          </div>
+        )}
         {/* Main Content */}
         <div
           style={{
@@ -308,17 +623,32 @@ export const WebGui: React.FC = () => {
             alignItems: "center",
             justifyContent: "center",
             transition: "background 0.3s",
+            height: "100%",
+            minHeight: 0,
+            overflow: "auto", // Enable vertical scroll if content overflow
+            // paddingTop: "32px", // Add top padding to prevent header overlap
           }}
         >
+          {loading !== "none" && (
+            <i className="pi pi-spin pi-spinner" 
+            style={{ fontSize: '2rem', display: 'block' , color: darkMode ? "#fff" : "#222",}}></i>
+          )}
+          {loading !== "block" && (
           <div
             style={{
               display: "flex",
+              flexWrap: "wrap", // Allow items to wrap to new lines
               gap: "40px",
-              background: colors.iconPanelBg,
+              // background: colors.iconPanelBg,
               padding: "32px 48px",
-              borderRadius: "18px",
-              boxShadow: colors.iconPanelShadow,
-              transition: "background 0.3s, box-shadow 0.3s",
+              // borderRadius: "18px",
+              // boxShadow: colors.iconPanelShadow,
+              // transition: "background 0.3s, box-shadow 0.3s",
+              justifyContent: "left", // Center items on each line
+              maxWidth: "90%",        
+              // position: "relative",        
+              // top: "45%",    
+              height: "100%",
             }}
           >
             {filteredIcons.length === 0 ? (
@@ -341,6 +671,7 @@ export const WebGui: React.FC = () => {
                     opacity: item.isValid ? 1 : 0.4,
                     filter: item.isValid ? "none" : "grayscale(0.7)",
                     pointerEvents: item.isValid ? "auto" : "none",
+                    height: "100px",
                   }}
                   onClick={() => item.isValid && window.open(item.href, "_blank")}
                   onMouseOver={e => {
@@ -369,6 +700,8 @@ export const WebGui: React.FC = () => {
               ))
             )}
           </div>
+          )}
+
         </div>
       </div>
 

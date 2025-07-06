@@ -359,6 +359,9 @@ export const WebGui: React.FC = () => {
         iconPanelBg: "#263238",
         iconPanelShadow: "0 2px 12px rgba(40, 53, 147, 0.18)",
         iconActive: "#90caf9",
+        bodyItemMouseOverBg: "#37474f",
+        bodyItemMouseOutBg: "#263238",
+        bodyItemText: "#fff",
         footerBg: "#11151c",
         footerText: "#fff",
         dropdownBg: "#23272f",
@@ -367,6 +370,7 @@ export const WebGui: React.FC = () => {
         userPanelText: "#90caf9",
         searchBoxBg: "#23272f",
         searchBoxText: "#fff",
+        loading: "#fff", // Loading spinner color
       }
     : {
         headerBg: "#81C0C0",        // Deep indigo for header
@@ -380,6 +384,9 @@ export const WebGui: React.FC = () => {
         iconPanelBg: "#fff",
         iconPanelShadow: "0 2px 12px rgba(25, 118, 210, 0.08)",
         iconActive: "#1976d2",      // Indigo for icons
+        bodyItemMouseOverBg: "#e3f2fd",      // Light blue for body items
+        bodyItemMouseOutBg: "#f1f8e9", // Light gray for body items
+        bodyItemText: "#37474f",       // Dark text for body items
         footerBg: "#263238",        // Blue gray for footer
         footerText: "#fff",
         dropdownBg: "#fff",
@@ -388,6 +395,7 @@ export const WebGui: React.FC = () => {
         userPanelText: "#1976d2",
         searchBoxBg: "#e3f2fd",
         searchBoxText: "#222",
+        loading: "#222", // Loading spinner color
       };
 
   // Filter icons by search (case-insensitive, match in description)
@@ -425,15 +433,15 @@ export const WebGui: React.FC = () => {
           icon="pi pi-bars"
           className="p-button-rounded p-button-text"
           style={{
-            position: "absolute",
-            left: "1%",
-            top: "50%",
-            transform: "translateY(-50%)",
-            color: colors.headerText,
-            fontSize: "1.0rem",
-            zIndex: 3,
-            background: "transparent",
-            border: "none",
+        position: "absolute",
+        left: "1%",
+        top: "50%",
+        transform: "translateY(-50%)",
+        color: colors.headerText,
+        fontSize: "1.0rem",
+        zIndex: 3,
+        background: "transparent",
+        border: "none",
           }}
           aria-label="Toggle Left Bar"
           onClick={() => setShowLeftBar((prev) => !prev)}
@@ -442,47 +450,50 @@ export const WebGui: React.FC = () => {
         {/* Web Logo and Name Panel at 5.5% from left (move right to avoid hamburger) */}
         <div
           style={{
-            position: "absolute",
-            left: "5.5%",
-            display: "flex",
-            alignItems: "center",
-            gap: "12px",
-            userSelect: "none",
-            marginLeft: "20px",
+        position: "absolute",
+        left: "5.5%",
+        display: "flex",
+        alignItems: "center",
+        gap: "12px",
+        userSelect: "none",
+        marginLeft: "20px",
           }}
         >
           {/* Square Logo */}
           <div
-            style={{
-              width: "60px",
-              height: "60px",
-              background: colors.logoBg,
-              color: colors.logoText,
-              display: "flex",
-              alignItems: "center",
-              justifyContent: "center",
-              fontWeight: "bold",
-              fontSize: "1.2rem",
-              borderRadius: "8px",
-              boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
-              letterSpacing: "2px",
-            }}
+        style={{
+          width: "60px",
+          height: "60px",
+          background: colors.logoBg,
+          color: colors.logoText,
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          fontWeight: "bold",
+          fontSize: "1.2rem",
+          borderRadius: "8px",
+          boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
+          letterSpacing: "2px",
+        }}
           >
-            WLP
+        WLP
           </div>
           {/* Web GUI Name */}
           <span style={{ fontWeight: 600, fontSize: "1.1rem", color: colors.headerText }}>
-            Web Link Platform
+        Web Link Platform
           </span>
         </div>
-
         {/* Centered Search Box */}
         <div
           style={{
             position: "absolute",
-            left: "50%",
+            left: "45%",
             transform: "translateX(-50%)",
-            width: "15%",
+            width: "18%",
+            minWidth: "150px",
+            maxWidth: "260px",
+            zIndex: 1,
+            pointerEvents: "auto",
           }}
         >
           <InputText
@@ -497,59 +508,20 @@ export const WebGui: React.FC = () => {
               background: colors.searchBoxBg,
               color: colors.searchBoxText,
               transition: "background 0.3s, color 0.3s",
+              fontWeight: 500,
             }}
+            className="custom-placeholder"
           />
+          <style>
+            {`
+                .custom-placeholder::placeholder {
+                  color: ${colors.searchBoxText};
+                  opacity: 0.7;
+                }
+            `}
+          </style>
         </div>
-        {/* Dropdown at 70% from left */}
-        <div
-          style={{
-            position: "absolute",
-            left: "70%",
-            width: "15%",
-          }}
-        >
-          <Dropdown
-            value={selectedOption}
-            options={dropdownItems || []}
-            onChange={(e) => setSelectedOption(e.value)}
-            placeholder="Select"
-            style={{
-              width: "100%",
-              borderRadius: "20px",
-              background: colors.dropdownBg,
-              color: colors.dropdownText,
-              border: "none",
-              transition: "background 0.3s, color 0.3s",
-            }}
-            panelStyle={{
-              borderRadius: "12px",
-              boxShadow: "0 2px 8px rgba(40, 53, 147, 0.10)",
-            }}
-          />
-        </div>
-        {/* User Panel at 7% from right */}
-        <div
-          style={{
-            position: "absolute",
-            right: "7%",
-            display: "flex",
-            alignItems: "center",
-            cursor: "pointer",
-            background: colors.userPanelBg,
-            borderRadius: "20px",
-            padding: "6px 16px",
-            boxShadow: "0 1px 4px rgba(40, 53, 147, 0.10)",
-            userSelect: "none",
-            color: colors.userPanelText,
-            fontWeight: 500,
-            transition: "background 0.3s, color 0.3s",
-          }}
-          onClick={(e) => op.current?.toggle(e)}
-        >
-          <span className="pi pi-user" style={{ marginRight: "8px" }} />
-          <span>{userName}</span>
-        </div>
-        {/* Dark mode switch at 1% from right */}
+        {/* Right side controls: Dropdown, User Panel, Dark mode switch */}
         <div
           style={{
             position: "absolute",
@@ -558,12 +530,75 @@ export const WebGui: React.FC = () => {
             transform: "translateY(-50%)",
             display: "flex",
             alignItems: "center",
-            gap: "6px",
+            gap: "13px",
             zIndex: 2,
           }}
         >
-          <span className="pi pi-moon" style={{ color: colors.headerText, fontSize: "1.1rem" }} />
-          <InputSwitch checked={darkMode} onChange={e => setDarkMode(e.value as boolean)} />
+          {/* Dropdown */}
+          <div style={{ minWidth: "120px", width: "150px" }}>
+            <Dropdown
+              value={selectedOption}
+              options={dropdownItems || []}
+              onChange={(e) => setSelectedOption(e.value)}
+              placeholder="Select"
+              style={{
+                width: "100%",
+                borderRadius: "20px",
+                background: colors.dropdownBg,
+                color: colors.dropdownText,
+                border: "none",
+                transition: "background 0.3s, color 0.3s",
+              }}
+              panelStyle={{
+                borderRadius: "12px",
+                boxShadow: "0 2px 8px rgba(40, 53, 147, 0.10)",
+              }}
+              className="custom-dropdown-placeholder"
+            />
+            <style>
+              {`
+                  .custom-dropdown-placeholder .p-dropdown-label {
+                    color: ${colors.dropdownText} !important;
+                  }
+                  .custom-dropdown-placeholder .p-dropdown-label.p-placeholder {
+                    color: ${colors.dropdownText};
+                    opacity: 0.7;
+                  }
+              `}
+            </style>
+          </div>
+          {/* User Panel */}
+          <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          cursor: "pointer",
+          background: colors.userPanelBg,
+          borderRadius: "20px",
+          padding: "6px 16px",
+          boxShadow: "0 1px 4px rgba(40, 53, 147, 0.10)",
+          userSelect: "none",
+          color: colors.userPanelText,
+          fontWeight: 500,
+          transition: "background 0.3s, color 0.3s",
+          minWidth: "90px",
+        }}
+        onClick={(e) => op.current?.toggle(e)}
+          >
+        <span className="pi pi-user" style={{ marginRight: "8px" }} />
+        <span>{userName}</span>
+          </div>
+          {/* Dark mode switch */}
+          <div
+        style={{
+          display: "flex",
+          alignItems: "center",
+          gap: "6px",
+        }}
+          >
+        <span className="pi pi-moon" style={{ color: colors.headerText, fontSize: "1.1rem" }} />
+        <InputSwitch checked={darkMode} onChange={e => setDarkMode(e.value as boolean)} />
+          </div>
         </div>
         <OverlayPanel ref={op}>
           <Menu model={menuItems} />
@@ -631,7 +666,7 @@ export const WebGui: React.FC = () => {
         >
           {loading !== "none" && (
             <i className="pi pi-spin pi-spinner" 
-            style={{ fontSize: '2rem', display: 'block' , color: darkMode ? "#fff" : "#222",}}></i>
+            style={{ fontSize: '2rem', display: 'block' , color: colors.loading,}}></i>
           )}
           {loading !== "block" && (
           <div
@@ -675,10 +710,10 @@ export const WebGui: React.FC = () => {
                   }}
                   onClick={() => item.isValid && window.open(item.href, "_blank")}
                   onMouseOver={e => {
-                    if (item.isValid) e.currentTarget.style.background = darkMode ? "#37474f" : "#e3f2fd";
+                    if (item.isValid) e.currentTarget.style.background = colors.bodyItemMouseOverBg;
                   }}
                   onMouseOut={e => {
-                    if (item.isValid) e.currentTarget.style.background = darkMode ? "#263238" : "#f1f8e9";
+                    if (item.isValid) e.currentTarget.style.background = colors.bodyItemMouseOutBg;
                   }}
                 >
                   <span
@@ -690,7 +725,7 @@ export const WebGui: React.FC = () => {
                     }}
                   />
                   <span style={{
-                    color: item.isValid ? (darkMode ? "#fff" : "#37474f") : "#aaa",
+                    color: item.isValid ? (colors.bodyItemText) : "#aaa",
                     fontWeight: 500,
                     fontSize: "1rem"
                   }}>

@@ -19,91 +19,91 @@ import { InputSwitch } from "primereact/inputswitch";
 const iconDataSet = {
   "changyly_1":[
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_1",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_1",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_1",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_2",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_2",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_2",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_3",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_3",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_3",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_4",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_4",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_4",
     href: "https://primereact.org",
     isValid:true,
@@ -111,73 +111,73 @@ const iconDataSet = {
   // Add more items as needed
 ],"changyly_2":[  
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_1",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_1",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_1",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_2",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_2",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_2",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_3",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_3",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_3",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_4",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_4",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_4",
     href: "https://primereact.org",
     isValid:true,
@@ -185,55 +185,55 @@ const iconDataSet = {
   // Add more items as needed
 ],"changyly_3":[
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_2",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_2",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_2",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_3",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_3",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_3",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_4",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_4",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_4",
     href: "https://primereact.org",
     isValid:true,
@@ -241,37 +241,37 @@ const iconDataSet = {
   // Add more items as needed
 ],"changyly_4":[
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_3",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_3",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_3",
     href: "https://primereact.org",
     isValid:true,
   },
   {
-    logo: "pi pi-github",
+    logo: "CN",
     description: "GitHub_4",
     href: "https://github.com",
     isValid:true,
   },
   {
-    logo: "pi pi-twitter",
+    logo: "OBJ",
     description: "Twitter_4",
     href: "https://twitter.com",
     isValid:false,
   },
   {
-    logo: "pi pi-globe",
+    logo: "COM",
     description: "Website_4",
     href: "https://primereact.org",
     isValid:true,
@@ -362,6 +362,8 @@ export const WebGui: React.FC = () => {
         bodyItemMouseOverBg: "#37474f",
         bodyItemMouseOutBg: "#263238",
         bodyItemText: "#fff",
+        bodyItemLogoBg: "#B3D9D9",
+        bodyItemLogoText: "#fff",
         footerBg: "#11151c",
         footerText: "#fff",
         dropdownBg: "#23272f",
@@ -387,6 +389,8 @@ export const WebGui: React.FC = () => {
         bodyItemMouseOverBg: "#e3f2fd",      // Light blue for body items
         bodyItemMouseOutBg: "#f1f8e9", // Light gray for body items
         bodyItemText: "#37474f",       // Dark text for body items
+        bodyItemLogoBg: "#B3D9D9",
+        bodyItemLogoText: "#37474f",
         footerBg: "#263238",        // Blue gray for footer
         footerText: "#fff",
         dropdownBg: "#fff",
@@ -716,14 +720,34 @@ export const WebGui: React.FC = () => {
                     if (item.isValid) e.currentTarget.style.background = colors.bodyItemMouseOutBg;
                   }}
                 >
-                  <span
+                <div
+                  style={{
+                    aspectRatio: "1 / 1",
+                    width: "50px",
+                    background: colors.bodyItemLogoBg,
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontWeight: "bold",
+                    fontSize: "1.1rem",
+                    borderRadius: "8px",
+                    boxShadow: "0 1px 4px rgba(0,0,0,0.10)",
+                    letterSpacing: "2px",
+                    marginBottom: "10px",
+                    color: item.isValid ? colors.bodyItemLogoText : "#aaa",
+                    transition: "background 0.3s",
+                  }}
+                >
+                  {item.logo}
+                </div>
+                  {/* <span
                     className={item.logo}
                     style={{
                       fontSize: "2.2rem",
                       marginBottom: "10px",
                       color: item.isValid ? colors.iconActive : "#aaa",
                     }}
-                  />
+                  /> */}
                   <span style={{
                     color: item.isValid ? (colors.bodyItemText) : "#aaa",
                     fontWeight: 500,
